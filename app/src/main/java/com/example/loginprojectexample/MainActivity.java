@@ -89,18 +89,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        if (System.currentTimeMillis() > backBtnTime + 2000){
-            backBtnTime = System.currentTimeMillis();
-            toast("한 번 더 누르면 로그아웃");
+
+        long curTime = System.currentTimeMillis();
+        long gapTime = curTime - backBtnTime;
+
+        if(0 <= gapTime && 2000 >= gapTime) {
+            super.onBackPressed();
         }
         else {
-            if (user != null){
-                mAuth.signOut();
-            }
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
+            backBtnTime = curTime;
+            toast("한번 더 누르면 종료됩니다.");
         }
+
     }
 
     private void toast(String text) {
