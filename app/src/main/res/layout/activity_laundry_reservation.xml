@@ -4,48 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
-
+    tools:context=".LaundryReservationActivity">
 
     <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#767676"
-        android:text="로그아웃"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/LaundryReservation"
+        android:id="@+id/WashingMachine"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginLeft="60dp"
+        android:layout_gravity="center"
         android:backgroundTint="#03A9F4"
+        android:gravity="center"
+        android:text="WASHING\nMACHINE"
 
-        android:text="Laundry\nReservation"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/logoutButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/MyCurrentLaundry"
+        android:id="@+id/Dryer"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:backgroundTint="#2196F3"
+        android:backgroundTint="#FF9800"
         android:gravity="center"
-        android:text="MY\nCURRENT\nLAUNDRY"
+        android:text="DRYER"
         android:textSize="20sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/logoutButton"
-        android:layout_marginRight="60dp"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

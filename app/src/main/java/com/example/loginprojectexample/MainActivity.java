@@ -3,6 +3,7 @@ package com.example.loginprojectexample;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    private long backBtnTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,22 +68,50 @@ public class MainActivity extends AppCompatActivity {
 
         }
         findViewById(R.id.logoutButton).setOnClickListener(mOnClickListener);
+        findViewById(R.id.LaundryReservation).setOnClickListener(mOnClickListener);
+        findViewById(R.id.MyCurrentLaundry).setOnClickListener(mOnClickListener);
     }
 
     View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-                switch (view.getId()){
+                Intent intent;
+            switch (view.getId()){
 
                     case R.id.logoutButton:
                         FirebaseAuth.getInstance().signOut();
                         Toast.makeText(MainActivity.this,"로그아웃 되었습니다!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+                        intent = new Intent(MainActivity.this, SignUpActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case R.id.LaundryReservation:
+                        intent = new Intent(MainActivity.this, LaundryReservationActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case R.id.MyCurrentLaundry:
+                        intent = new Intent(MainActivity.this, MyCurrentLaundryActivity.class);
                         startActivity(intent);
                         break;
                 }
         }
     };
 
+    @Override
+    public void onBackPressed() {
+        long curTime = System.currentTimeMillis();
+        long gapTime = curTime - backBtnTime;
+
+        if(0 <= gapTime && 2000 >= gapTime) {
+            super.onBackPressed();
+        }
+        else {
+            backBtnTime = curTime;
+            Toast.makeText(this, "한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
 
 }
