@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_knu_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginProjectExample">
-        <activity android:name=".MyCurrentLaundryActivity"></activity>
+        <activity
+            android:name=".SelectActivity"
+            android:exported="false" />
+        <activity android:name=".MyCurrentLaundryActivity" />
         <activity android:name=".WashingMachineActivity" />
         <activity android:name=".LaundryReservationActivity" />
         <activity android:name=".auth.PasswordResetActivity" />

@@ -75,8 +75,9 @@ public class MainActivity extends AppCompatActivity {
             Intent intent;
             switch (view.getId()) {
                 case R.id.LaundryReservation:
-                    intent = new Intent(MainActivity.this, LaundryReservationActivity.class);
+                    intent = new Intent(MainActivity.this, SelectActivity.class);
                     startActivity(intent);
+                    finish();
                     break;
 
                 case R.id.MyCurrentLaundry:

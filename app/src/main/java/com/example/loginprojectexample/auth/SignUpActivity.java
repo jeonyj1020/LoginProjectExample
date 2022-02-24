@@ -66,7 +66,6 @@ public class SignUpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            toast("무야호~~");
                             MemberInfo memberInfo = new MemberInfo(bedNum);
                             if (user != null) {
                                 mDb.collection("users").document(user.getUid()).set(memberInfo)

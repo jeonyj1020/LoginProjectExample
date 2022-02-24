@@ -11,7 +11,9 @@
         <entry key="app/src/main/res/layout/activity_member_init.xml" value="0.16286727456940223" />
         <entry key="app/src/main/res/layout/activity_my_current_laundry.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_password_reset.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_select.xml" value="0.15602836879432624" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.16286727456940223" />
+        <entry key="app/src/main/res/layout/activity_washing_machine.xml" value="0.16286727456940223" />
       </map>
     </option>
   </component>
