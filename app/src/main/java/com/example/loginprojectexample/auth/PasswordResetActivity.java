@@ -1,15 +1,15 @@
-package com.example.loginprojectexample;
+package com.example.loginprojectexample.auth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.loginprojectexample.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -52,7 +52,9 @@ public class PasswordResetActivity extends AppCompatActivity {
 
                             if (task.isSuccessful()) {
                                 Toast.makeText(PasswordResetActivity.this,"이메일을 보냈습니다.이메일 속 링크를 클릭해주세요.",Toast.LENGTH_SHORT).show();
-
+                                Intent intent = new Intent(PasswordResetActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         }
                     });

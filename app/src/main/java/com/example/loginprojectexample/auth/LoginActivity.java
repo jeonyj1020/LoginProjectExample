@@ -1,4 +1,4 @@
-package com.example.loginprojectexample;
+package com.example.loginprojectexample.auth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,9 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.loginprojectexample.MainActivity;
+import com.example.loginprojectexample.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -32,19 +33,24 @@ public class LoginActivity extends AppCompatActivity {
 
         findViewById(R.id.loginButton).setOnClickListener(mOnClickListener);
         findViewById(R.id.gotopasswordResetButton).setOnClickListener(mOnClickListener);
+        findViewById(R.id.goToSignUp).setOnClickListener(mOnClickListener);
     }
 
 
     View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            Intent intent;
             switch(view.getId()){
                 case R.id.loginButton:
                     login();
                     break;
                 case R.id.gotopasswordResetButton:
-                    Intent intent = new Intent(LoginActivity.this, PasswordResetActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent = new Intent(LoginActivity.this, PasswordResetActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.goToSignUp:
+                    intent = new Intent(LoginActivity.this, SignUpActivity.class);
                     startActivity(intent);
                     break;
             }
@@ -73,15 +79,16 @@ public class LoginActivity extends AppCompatActivity {
                             } else {
                                 if (task.getException() != null) {
                                     Toast.makeText(LoginActivity.this,task.getException().toString(),Toast.LENGTH_SHORT).show();
-
                                 }
                             }
                         }
                     });
         } else {
             Toast.makeText(LoginActivity.this,"이메일 또는 비밀번호를 입력해주세요",Toast.LENGTH_SHORT).show();
-
         }
     }
 
+    private void toast(String text){
+        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+    }
 }

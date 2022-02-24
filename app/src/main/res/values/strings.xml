@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">LoginProjectExample</string>
+    <string name="app_name">KNU세탁예약</string>
+    <string name="txt_login">로그인</string>
+    <string name="txt_email">이메일</string>
+    <string name="txt_pwd">비밀번호(6자리 이상)</string>
+    <string name="txt_pwdchk">비밀번호 확인</string>
+    <string name="txt_forgot_pwd">비밀번호 찾기</string>
+    <string name="signup">회원가입</string>
+    <string name="txt_bedNum">방 번호</string>
+    <string name="txt_pwd_rst">비밀번호 재설정</string>
+    <string name="send">보내기</string>
 </resources>
